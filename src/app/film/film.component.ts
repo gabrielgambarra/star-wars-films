@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { FilmService } from '../providers/services/film.service';
 import { FeedbackService } from '../providers/services/feedback.service';
+import { Film } from '../providers/models/Film.model';
 
 @Component({
   selector: 'app-film',
@@ -11,8 +11,8 @@ import { FeedbackService } from '../providers/services/feedback.service';
 })
 export class FilmComponent implements OnInit {
 
-  filmID;
-  film: any = {};
+  filmID: string;
+  film: Film = new Film();
 
   constructor(
     private router: Router,
@@ -24,7 +24,6 @@ export class FilmComponent implements OnInit {
   ngOnInit(): void {
     this.setRouterEvents();
     this.checkFilmID();
-    this.getFilm();
   }
 
   private checkFilmID(): void {

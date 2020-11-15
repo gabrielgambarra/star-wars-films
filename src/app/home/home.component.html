@@ -1,1 +1,14 @@
-<p>home works!</p>
+<div class="home-container">
+
+    <div class="site-intro">
+        <img src="../../assets/star-wars-logo.png" alt="Star Wars Logo">
+
+        <h1>A site to know about the movies details</h1>
+    </div>
+
+    <div class="movies">
+        <mat-card *ngFor="let film of films; let i = index" (click)="openFilmDetail(i+1)">
+            <img src="{{film.imgURL}}" alt="Star Wars Logo">
+        </mat-card>
+    </div>
+</div>

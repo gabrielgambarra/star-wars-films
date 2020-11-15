@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FilmService } from '../providers/services/film.service';
 
 @Component({
@@ -9,9 +10,11 @@ import { FilmService } from '../providers/services/film.service';
 export class HomeComponent implements OnInit {
 
   films = [];
+  teste;
 
   constructor(
-    private filmsService: FilmService
+    private filmsService: FilmService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -23,11 +26,16 @@ export class HomeComponent implements OnInit {
       success => {
         // Here I'm destructuring the API response.
         // With this process, I get only the data that I'll need.
-        success.results.forEach(({ title, episode_id, director }) => {
-          this.films.push(Object.assign({ title, episode_id, director }));
+        success.results.forEach(({ title }) => {
+          let imgURL = '../../assets/films/' + title.toLowerCase().split(' ').join('-') + '.jpg';
+          this.films.push(Object.assign({ title, imgURL }));
         });
       }
     );
+  }
+
+  public openFilmDetail(filmID): void {
+    this.router.navigate([`/film/${filmID}`]);
   }
 
 }
