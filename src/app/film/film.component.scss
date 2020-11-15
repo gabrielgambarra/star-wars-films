@@ -1,7 +1,8 @@
 .star-wars-intro {
     -webkit-user-select: none;
     height: 90%;
-    background: url("/assets/stars-bg.jpg") center center;
+    background-image: url("/assets/stars-bg.jpg");
+    background-position: center;
 
     mat-icon {
         font-size: 2em;
