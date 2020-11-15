@@ -1,0 +1,41 @@
+<div class="star-wars-intro">
+
+    <mat-icon (click)="goToHomePage()">arrow_back</mat-icon>
+
+    <p class="intro-text">
+        A long time ago, in a galaxy far, far away...
+    </p>
+
+    <h2 class="main-logo">
+        <img src="assets/star-wars-logo.png">
+    </h2>
+
+    <div class="main-content">
+        <div class="title-content">
+            <p class="content-header">{{film.title}}</p>
+
+            <br>
+
+            <p class="content-body">
+                {{film.opening_crawl}}
+            </p>
+
+            <p>
+                Scroll to know more about.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="film-info-container">
+    <h2>{{film.title}}</h2>
+
+    <mat-card>
+        <p>Title: <span>{{film.title}}</span></p>
+        <p>Director: <span>{{film.director}}</span></p>
+        <p>Producer: <span>{{film.producer}}</span></p>
+        <p>Release date: <span>{{film.release_date}}</span></p>
+        <p>Opening crawl:</p>
+        <span>{{film.opening_crawl}}</span>
+    </mat-card>
+</div>
