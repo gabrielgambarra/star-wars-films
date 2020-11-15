@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
         // Here I'm destructuring the API response.
         // With this process, I get only the data that I'll need.
         success.results.forEach(({ title }) => {
-          let imgURL = '../../assets/films/' + title.toLowerCase().split(' ').join('-') + '.jpg';
+          let imgURL = 'assets/films/' + title.toLowerCase().split(' ').join('-') + '.jpg';
           this.films.push(Object.assign({ title, imgURL }));
         });
       }
